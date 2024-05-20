@@ -23,5 +23,7 @@ app.get("/users", async (req, res) => {
 })
 
 app.use("/", require("./routes/auth"));
+app.use("/", require("./routes/trip"));
+app.use("/", require("./routes/expense"));
 
 app.listen(PORT, () => console.log(`Server started on port : ${PORT}` ));

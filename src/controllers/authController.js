@@ -61,6 +61,7 @@ module.exports.signIn = async (req, res)=>{
         return res.status(500).json({ error: error.message });
     }
 }
-module.exports.logout = async (req, res)=>{
 
+module.exports.logout = async (req, res)=>{
+    
 }
