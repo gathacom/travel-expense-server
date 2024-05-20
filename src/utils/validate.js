@@ -1,0 +1,18 @@
+const ErrorHandler = require("../utils/ErrorHandler");
+
+const validate = (schema) => (req, res, next) => {
+    try {
+      schema.parse({
+        body: req.body,
+        query: req.query,
+        params: req.params,
+      });
+  
+      next();
+    } catch (error) {
+    const message = error;
+      return res.status(400).send(error.errors[0].message);
+    }
+  };
+
+  module.exports = validate
