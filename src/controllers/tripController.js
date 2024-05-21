@@ -11,7 +11,7 @@ module.exports.showAll = async (req, res) => {
     }
 }
 module.exports.getById = async (req, res) => {
-    const id = req.params.id
+    const id = req.params.tripId
     try {
         const trip = await prisma.trip.findUnique({
             where: {
@@ -65,7 +65,7 @@ module.exports.store = async (req, res) => {
     }
 }
 module.exports.update = async (req, res) => {
-    const id = req.params.id
+    const id = req.params.tripId
     const tripData = req.body
     try {
         const existingTrip = await prisma.trip.findUnique({
@@ -94,7 +94,7 @@ module.exports.update = async (req, res) => {
     }
 }
 module.exports.destroy = async (req, res) => {
-    const tripId = req.params.id;
+    const tripId = req.params.tripId;
     try {
         const deletedTrip = await prisma.trip.delete({
             where: {

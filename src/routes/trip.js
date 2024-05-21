@@ -8,11 +8,11 @@ const { isValidTrip } = require("../middlewares/isValidTrip");
 const router = Router();
 
 router.get('/trips', showAll)
-router.get('/trip/:id',isValidTrip, isAuthor, getById)
+router.get('/trip/:tripId',isValidTrip, isAuthor, getById)
 router.get('/tripsByAuthor',isAuthorization, getByAuthor)
 router.post('/trip',isAuthorization, validate(tripSchema), store)
-router.patch('/trip/:id',isValidTrip, isAuthor, update)
-router.delete('/trip/:id',isValidTrip, isAuthor, destroy)
+router.patch('/trip/:tripId',isValidTrip, isAuthor, update)
+router.delete('/trip/:tripId',isValidTrip, isAuthor, destroy)
 
 module.exports = router
 
