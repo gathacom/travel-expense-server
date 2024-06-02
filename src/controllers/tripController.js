@@ -16,6 +16,9 @@ module.exports.getById = async (req, res) => {
         const trip = await prisma.trip.findUnique({
             where: {
                 id: id
+            },
+            include: {
+                expenses: true
             }
         })
         return res.status(200).json({ trip })
@@ -26,12 +29,15 @@ module.exports.getById = async (req, res) => {
 module.exports.getByAuthor = async (req, res) => {
     const userId = req.user
     try {
-        userTrips = await prisma.trip.findMany({
+        trips = await prisma.trip.findMany({
             where: {
                 userId: userId
+            },
+            include: {
+                expenses: true
             }
         })
-        return res.status(200).json({ userTrips })
+        return res.status(200).json({ trips })
     } catch (error) {
         return res.status(400).json({ error: error.message })
     }
@@ -95,6 +101,7 @@ module.exports.update = async (req, res) => {
 }
 module.exports.destroy = async (req, res) => {
     const tripId = req.params.tripId;
+    console.log(tripId)
     try {
         const deletedTrip = await prisma.trip.delete({
             where: {

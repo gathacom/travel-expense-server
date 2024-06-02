@@ -11,7 +11,7 @@ const validate = (schema) => (req, res, next) => {
       next();
     } catch (error) {
     const message = error;
-      return res.status(400).send(error.errors[0].message);
+      return res.status(400).json({type:error.errors[0].path[1], message: error.errors[0].message});
     }
   };
 

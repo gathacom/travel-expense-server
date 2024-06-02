@@ -4,7 +4,6 @@ const prisma = new PrismaClient();
 
 module.exports.isValidTrip = async (req, res, next) => {
     const tripId = req.params.tripId || req.body.tripId;
-
     const trip = await prisma.trip.findUnique({
         where: {
             id: tripId

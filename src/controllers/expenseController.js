@@ -54,9 +54,8 @@ module.exports.store = async (req, res) => {
   }
 };
 module.exports.update = async (req, res) => {
-    const id = req.params.id
-  const { title, description, amount, tripId } = req.body;
-//   console.log(tripData);
+    const {id, tripId} = req.params
+  const { title, description, amount } = req.body;
   try {
     const newExpense = await prisma.expense.update({
       where: {
@@ -93,3 +92,9 @@ module.exports.destroy = async (req, res) => {
         return res.status(400).json({ error: error.message })
     }
 };
+
+module.exports.totalExpenses = async (req, res) => {
+    
+};
+
+

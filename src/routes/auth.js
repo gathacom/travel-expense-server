@@ -7,7 +7,7 @@ const router = Router();
 
 router.post("/signup", validate(userSignInSchema),  authController.signUp)
 router.post("/signin", authController.signIn)
-router.post("/logout", authController.logout)
+router.post("/signout", authController.logout)
 
 module.exports = router
 
