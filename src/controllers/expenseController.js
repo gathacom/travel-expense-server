@@ -94,7 +94,53 @@ module.exports.destroy = async (req, res) => {
 };
 
 module.exports.totalExpenses = async (req, res) => {
-    
+  const userId = req.user
+  console.log(userId)
+  
+  try {
+    const totalExpenses = await prisma.expense.aggregate({
+      _sum: {
+        amount: true,
+      },
+      where: {
+        trip: {
+          userId: userId
+        }
+      }
+    });
+
+    res.json({ totalExpense: totalExpenses._sum.amount });
+  } catch (error) {
+    res.status(500).json({ error: 'Terjadi kesalahan' });
+  }
+};
+module.exports.totalExpensesByTrip = async (req, res) => {
+  const userId = req.user
+  const { tripId } = req.params
+  try {
+    // Memeriksa apakah perjalanan dengan tripId tersebut milik user yang sedang login
+    const trip = await prisma.trip.findUnique({
+      where: { id: tripId },
+      include: { user: true },
+    });
+
+    if (!trip || trip.user.id !== userId) {
+      return res.status(403).json({ error: 'Forbidden' });
+    }
+
+    const totalExpenses = await prisma.expense.aggregate({
+      _sum: {
+        amount: true,
+      },
+      where: {
+        tripId: tripId,
+      },
+    });
+
+    res.json({ totalExpense: totalExpenses._sum.amount || 0 });
+  } catch (error) {
+    res.status(500).json({ error: 'Terjadi kesalahan' });
+  }
 };
 
 
