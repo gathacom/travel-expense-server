@@ -3,7 +3,7 @@ steps:
     args: ["install"]
   - name: "gcr.io/cloud-builders/gcloud"
     args: ["app", "deploy", "app.yaml"]
-  - name: "gcr.io/cloud-builders/npx"
+  - name: "gcr.io/cloud-builders/npx:9.6.7"
     args: ["prisma", "migrate", "deploy"]
 options:
   logging: CLOUD_LOGGING_ONLY
