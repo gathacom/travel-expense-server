@@ -1,5 +1,5 @@
 runtime: nodejs18
-
+env: flex
 service: travel-expense-server
 
 env_variables:
