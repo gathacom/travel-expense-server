@@ -4,7 +4,7 @@ const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
-const SECRET_KEY = process.env.SECRET_KEY
+const SECRET_KEY = process.env.SECRET_KEY || "getOutOfHereBtch"
 
 module.exports.signUp = async (req, res)=>{
     const { username, password, email } = req.body

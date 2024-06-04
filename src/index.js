@@ -41,4 +41,4 @@ app.use("/", require("./routes/auth"));
 app.use("/", require("./routes/trip"));
 app.use("/", require("./routes/expense"));
 
-app.listen(PORT, () => console.log(`Server started on port : ${PORT}` ));
+app.listen(PORT, () => console.log(`This Server started on port : ${PORT}` ));
