@@ -15,7 +15,7 @@ app.use(cors(
     }
 ));
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 //midleware
 app.use(bodyParser.json());
