@@ -4,7 +4,11 @@ const prisma = new PrismaClient();
 
 module.exports.showAll = async (req, res) => {
     try {
-        trips = await prisma.trip.findMany({})
+        trips = await prisma.trip.findMany({
+            include: {
+                expenses: true
+            }
+        })
         return res.status(200).json({ trips })
     } catch (error) {
         return res.status(400).json({ error: error.message })
