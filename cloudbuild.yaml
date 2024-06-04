@@ -1,10 +1,10 @@
 steps:
   - name: "gcr.io/cloud-builders/npm"
     args: ["install"]
+  - name: "gcr.io/cloud-builders/npx"
+    args: ["prisma", "generate"]
   - name: "gcr.io/cloud-builders/npm"
-    args: ["run", "prisma", "generate"]
-  - name: "gcr.io/cloud-builders/npm"
-    args: ["run", "prisma", "migrate", "deploy"]
+    args: ["prisma", "migrate", "deploy"]
   - name: "gcr.io/cloud-builders/gcloud"
     args: ["app", "deploy", "app.yaml"]
 options:
