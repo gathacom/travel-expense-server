@@ -57,7 +57,7 @@ module.exports.signIn = async (req, res)=>{
         if(!isMatch){
             return res.status(400).json({ message: 'Email or username and password not found' });
         }
-        const token = jwt.sign({ email: user.email, id: user.id }, SECRET_KEY, { expiresIn: '1h' });
+        const token = jwt.sign({ email: user.email, id: user.id }, SECRET_KEY, { expiresIn: '1d' });
         delete user.password
         return res.status(200).json({ user : user, token : token })
     } catch (error) {
