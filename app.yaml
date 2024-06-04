@@ -1,7 +1,8 @@
 runtime: nodejs
-env: standard
+
 service: travel-expense-server
 
 env_variables:
   DATABASE_URL: 'postgres://postgres:lael0laeq12@34.143.187.87:5432/travel_expense'
+  PORT: '8080'
   SECRET_KEY: 'getOutOfHereBtch'
