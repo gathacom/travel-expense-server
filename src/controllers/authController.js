@@ -65,5 +65,33 @@ module.exports.signIn = async (req, res)=>{
     }
 }
 
+module.exports.checkUser = async (req, res)=>{
+    const { authorization } = req.headers;
+    if (!authorization) {
+        return res.status(401).json({
+            success: false,
+            message: "Unauthorized",
+        });
+    }
+    const token = authorization.split(" ")[1];
+    const payload = jwt.verify(token, process.env.SECRET_KEY);
+    const user = await prisma.user.findUnique({
+        where: {
+            id: payload.id,
+        },
+    });
+    if (!user) {
+        return res.status(401).json({
+            success: false,
+            message: "Unauthorized",
+        });
+    }
+    return res.status(200).json({
+        success: true,
+        user: user
+    })
+
+}
+
 module.exports.logout = async (req, res)=>{
 }
