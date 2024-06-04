@@ -9,13 +9,14 @@ const prisma = new PrismaClient();
 
 dotenv.config();
 
+const PORT = process.env.PORT || 5000;
+
 app.use(cors(
     {
         origin: ["*", "http://localhost:3000"],
     }
 ));
 
-const PORT = process.env.PORT || 5000;
 
 //midleware
 app.use(bodyParser.json());
