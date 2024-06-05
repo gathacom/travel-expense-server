@@ -67,6 +67,7 @@ module.exports.signIn = async (req, res)=>{
 
 module.exports.checkUser = async (req, res)=>{
     const { authorization } = req.headers;
+    console.log(authorization)
     if (!authorization) {
         return res.status(401).json({
             success: false,

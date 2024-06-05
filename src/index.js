@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 8080;
 
 app.use(cors(
     {
-        origin: ["*", "http://localhost:3000"],
+        origin: ["*", "http://localhost:3000", "https://travel-expense-client-dot-project-akhir-tcc.as.r.appspot.com/" ],
     }
 ));
 
