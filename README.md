@@ -34,24 +34,27 @@ Now you can hit the API using Postman or another app
 | ------------- | ------------- |
 | post      | /checkUser |
 | post | /signup  |
-
-post : ""
-post : ""
-post : "/signin"
+| post | /signin    |
 
 #### Trip
-get : '/trips'
-get : '/trip/:tripId'
-get : '/tripsByAuthor'
-post : '/trip'
-patch : '/trip/:tripId'
-delete : '/trip/:tripId'
+|     Method    |    Endpoint   |
+| ------------- | ------------- |
+| get      | /trips |
+| get | /trip/:tripId  |
+| get | /tripsByAuthor   |
+| post      | /trip |
+| patch | /trip/:tripId  |
+| delete | /trip/:tripId    |
 
 ##### Expense
-get : '/expenses/total'
-get : '/expenses/total/:tripId'
-get : '/expenses/:tripId'
-get : '/expense/:tripId/:id'
-post : '/expense'
-put : '/expense/:tripId/:id'
-delete : '/expense/:tripId/:id'
+|     Method    |    Endpoint   |
+| ------------- | ------------- |
+| get      | /expenses/total |
+| get | /expenses/total/:tripId  |
+| get | /expenses/:tripId   |
+| get      | /expense/:tripId/:id |
+| post      | /expense |
+| put | /expense/:tripId/:id  |
+| delete | /expense/:tripId/:id    |
+
+
