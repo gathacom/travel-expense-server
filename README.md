@@ -32,11 +32,11 @@ Now you can hit the API using Postman or another app
 #### Auth
 |     Method    |    Endpoint   |
 | ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| post      | /checkUser |
+| post | /signup  |
 
-post : "/checkUser"
-post : "/signup"
+post : ""
+post : ""
 post : "/signin"
 
 #### Trip
