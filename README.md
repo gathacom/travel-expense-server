@@ -30,6 +30,11 @@ Follow the step below to run this project :
 Now you can hit the API using Postman or another app
 
 #### Auth
+|     Method    |    Endpoint   |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
+
 post : "/checkUser"
 post : "/signup"
 post : "/signin"
