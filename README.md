@@ -17,10 +17,10 @@ Follow the step below to run this project :
     $ npm install
 
 -Add a file on the root folder named ".env"
-    this file will contain 3 env variable
-    - DATABASE_URL
-    - PORT
-    - SECRET_KEY
+this file will contain 3 env variable
+DATABASE_URL
+PORT
+SECRET_KEY
 
 -Run the project
 
